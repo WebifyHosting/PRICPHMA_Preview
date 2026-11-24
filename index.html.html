@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRICPHMA — Primer Colegio Profesional Hondureño de Maestros</title>
+  <style>
+:root {
+  --green-900: #0f3d22;
+  --green-800: #14532d;
+  --green-700: #15803d;
+  --green-600: #16a34a;
+  --green-100: #dcfce7;
+  --green-50: #f0fdf4;
+  --gold-600: #ca8a04;
+  --gold-500: #eab308;
+  --gold-400: #facc15;
+  --gold-100: #fef9c3;
+  --gold-50: #fefce8;
+  --white: #ffffff;
+  --ink: #14221a;
+  --muted: #4b5d52;
+  --border: #d4e4da;
+  --radius: 16px;
+  --shadow: 0 12px 30px rgba(15, 61, 34, 0.09);
+  --shadow-lg: 0 20px 44px rgba(15, 61, 34, 0.16);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(1160px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================================
+   Estampados Decorativos Dinámicos de Fondo
+   ========================================= */
+.pattern-hero {
+  background-color: var(--green-900);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(250, 204, 21, 0.22) 0%, transparent 42%),
+    radial-gradient(circle at 85% 80%, rgba(22, 163, 74, 0.35) 0%, transparent 45%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23facc15' stroke-opacity='0.09' stroke-width='1'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z'/%3E%3Ccircle cx='30' cy='30' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  animation: driftPattern 26s linear infinite;
+}
+
+.pattern-dots-green {
+  background-color: var(--white);
+  background-image:
+    radial-gradient(rgba(21, 128, 61, 0.12) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(234, 179, 8, 0.16) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.pattern-diagonal-gold {
+  background-color: var(--gold-50);
+  background-image:
+    linear-gradient(135deg, rgba(250, 204, 21, 0.22) 0%, rgba(255, 255, 255, 0.85) 55%, rgba(220, 252, 231, 0.45) 100%),
+    url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 44 L44 0 M-11 11 L11 -11 M33 55 L55 33' stroke='%23ca8a04' stroke-opacity='0.14' stroke-width='1.2'/%3E%3C/svg%3E");
+}
+
+.pattern-leaf-white {
+  background-color: var(--white);
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2315803d' stroke-opacity='0.07' stroke-width='1.2'%3E%3Cpath d='M20 40 Q40 12 60 40 Q40 68 20 40 Z'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23eab308' fill-opacity='0.22' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-hex-green {
+  background-color: var(--green-50);
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='56' height='49' viewBox='0 0 56 49' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0 L56 16 V33 L28 49 L0 33 V16 Z' fill='none' stroke='%2315803d' stroke-opacity='0.09' stroke-width='1.1'/%3E%3C/svg%3E");
+}
+
+@keyframes driftPattern {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 0 0, 0 0, 120px 120px; }
+}
+
+/* Topbar */
+.topbar {
+  background: var(--green-900);
+  color: #e8f5ec;
+  font-size: 0.84rem;
+  border-bottom: 2px solid var(--gold-400);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  flex-wrap: wrap;
+}
+
+.topbar-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e8f5ec;
+  text-decoration: none;
+}
+
+.topbar-item svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--gold-400);
+  flex-shrink: 0;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links {
+  display: flex;
+  gap: 6px;
+}
+
+.social-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.social-btn:hover {
+  background: var(--gold-400);
+  color: var(--green-900);
+  transform: translateY(-2px);
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 18px rgba(15, 61, 34, 0.06);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--green-900);
+}
+
+.brand-name {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.brand-motto {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--green-700);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: var(--green-100);
+  color: var(--green-800);
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--green-50);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 10px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 22px;
+  height: 2.5px;
+  background: var(--green-800);
+  border-radius: 2px;
+  transition: transform 0.25s;
+}
+
+.mobile-drawer {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 4% 18px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+
+.mobile-drawer.open {
+  display: flex;
+}
+
+.mobile-link {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.mobile-link:hover {
+  background: var(--green-50);
+  color: var(--green-700);
+}
+
+.mobile-drawer-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Botones */
+.btn {
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.94rem;
+  padding: 11px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-sm { padding: 8px 14px; font-size: 0.85rem; }
+.btn-lg { padding: 13px 24px; font-size: 0.98rem; }
+.btn-block { width: 100%; }
+
+.btn-green {
+  background: var(--green-700);
+  color: var(--white);
+  box-shadow: 0 6px 16px rgba(21, 128, 61, 0.25);
+}
+
+.btn-green:hover { background: var(--green-800); }
+
+.btn-gold {
+  background: var(--gold-400);
+  color: var(--green-900);
+  box-shadow: 0 6px 16px rgba(234, 179, 8, 0.3);
+}
+
+.btn-gold:hover { background: var(--gold-500); }
+
+.btn-outline-light {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline-green {
+  background: var(--white);
+  color: var(--green-800);
+  border: 1.5px solid var(--green-700);
+}
+
+.btn-outline-green:hover {
+  background: var(--green-50);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  color: var(--white);
+  padding: 58px 0 92px;
+  overflow: hidden;
+}
+
+.hero-ornaments .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 280px;
+  height: 280px;
+  background: rgba(250, 204, 21, 0.22);
+  top: -70px;
+  right: 8%;
+  animation: pulseOrb 8s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  width: 240px;
+  height: 240px;
+  background: rgba(34, 197, 94, 0.26);
+  bottom: 20px;
+  left: -60px;
+  animation: pulseOrb 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulseOrb {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.16) translateY(-18px); }
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.slide-badge {
+  display: inline-block;
+  background: rgba(250, 204, 21, 0.18);
+  border: 1px solid rgba(250, 204, 21, 0.55);
+  color: var(--gold-400);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+  margin: 0 0 14px;
+  font-weight: 900;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: #e4f3e9;
+  margin: 0 0 12px;
+  max-width: 56ch;
+}
+
+.hero-meta {
+  font-size: 0.9rem;
+  color: var(--gold-400);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.slider-arrow:hover {
+  background: var(--gold-400);
+  color: var(--green-900);
+}
+
+.slider-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: width 0.25s, background 0.25s;
+}
+
+.slider-dot.active {
+  width: 28px;
+  background: var(--gold-400);
+}
+
+.hero-glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: var(--shadow-lg);
+}
+
+.anniversary-pill {
+  display: inline-block;
+  background: var(--gold-400);
+  color: var(--green-900);
+  font-size: 0.76rem;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.hero-glass-card h2 {
+  font-size: 1.35rem;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.hero-glass-card p {
+  font-size: 0.93rem;
+  color: #e6f5eb;
+  margin: 0 0 18px;
+}
+
+.hero-quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.quick-tile {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(250, 204, 21, 0.32);
+  color: var(--white);
+  border-radius: 14px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.quick-tile:hover {
+  background: rgba(250, 204, 21, 0.22);
+  transform: translateY(-2px);
+}
+
+.quick-kicker {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--gold-400);
+  font-weight: 700;
+}
+
+.wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 60px;
+}
+
+/* Secciones Generales */
+.section {
+  padding: 72px 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 38px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--green-100);
+  color: var(--green-800);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.tag-dark {
+  background: var(--green-900);
+  color: var(--gold-400);
+}
+
+.tag-gold {
+  background: var(--gold-400);
+  color: var(--green-900);
+}
+
+.section-title {
+  font-size: clamp(1.65rem, 3vw, 2.3rem);
+  color: var(--green-900);
+  margin: 0 0 10px;
+  font-weight: 900;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Eventos */
+.event-showcase {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.event-visual {
+  background:
+    radial-gradient(circle at 30% 25%, rgba(250, 204, 21, 0.35), transparent 55%),
+    linear-gradient(145deg, var(--green-900), #0b2b18);
+  color: var(--white);
+  padding: 36px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.event-year {
+  display: block;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--gold-400);
+}
+
+.event-anniv-label {
+  display: inline-block;
+  letter-spacing: 0.22em;
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.event-motto {
+  font-size: 0.88rem;
+  color: #dff4e7;
+  margin: 14px 0 8px;
+}
+
+.event-pres {
+  font-size: 0.8rem;
+  color: var(--gold-400);
+  font-weight: 600;
+}
+
+.event-body {
+  padding: 32px;
+}
+
+.event-chip {
+  display: inline-block;
+  background: var(--gold-100);
+  color: var(--green-900);
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.event-body h3 {
+  margin: 0 0 10px;
+  font-size: 1.45rem;
+  color: var(--green-900);
+}
+
+.event-summary {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.event-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.meta-box {
+  background: var(--green-50);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.meta-label {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--green-700);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rsvp-status {
+  margin: 12px 0 0;
+  font-weight: 700;
+  color: var(--green-700);
+  min-height: 22px;
+}
+
+/* Filtros y Comunicados */
+.filter-bar, .board-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+
+.filter-pill {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--green-900);
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-pill.active, .filter-pill:hover {
+  background: var(--green-700);
+  border-color: var(--green-700);
+  color: var(--white);
+}
+
+.comunicados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.com-card {
+  background: var(--white);
+  border: 1px solid rgba(202, 138, 4, 0.28);
+  border-top: 5px solid var(--green-700);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.22s;
+}
+
+.com-card:hover {
+  transform: translateY(-4px);
+}
+
+.com-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.com-badge {
+  background: var(--gold-100);
+  color: var(--green-900);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.com-date {
+  color: var(--muted);
+}
+
+.com-card h3 {
+  margin: 0 0 10px;
+  color: var(--green-900);
+  font-size: 1.2rem;
+}
+
+.com-card p {
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-size: 0.94rem;
+}
+
+/* Beneficios y Verificador */
+.benefits-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tabs-panel, .checklist-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+.tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  background: var(--green-50);
+  color: var(--green-900);
+  border: 1px solid var(--border);
+  padding: 9px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: var(--green-700);
+  color: var(--white);
+  border-color: var(--green-700);
+}
+
+.tab-amount {
+  display: inline-block;
+  background: var(--gold-100);
+  color: var(--green-900);
+  font-size: 1.25rem;
+  font-weight: 900;
+  padding: 6px 14px;
+  border-radius: 12px;
+  margin: 8px 0 12px;
+}
+
+.checklist-card {
+  border-top: 5px solid var(--gold-400);
+}
+
+.checklist-card h3 {
+  margin: 0 0 6px;
+  color: var(--green-900);
+}
+
+.checklist-card > p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 14px;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: var(--green-50);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.check-row input {
+  accent-color: var(--green-700);
+  width: 18px;
+  height: 18px;
+}
+
+.progress-wrap {
+  margin: 14px 0 16px;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #e5ece8;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--green-700), var(--gold-400));
+  transition: width 0.25s ease;
+}
+
+.progress-text {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--green-800);
+}
+
+/* Junta Directiva */
+.board-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.search-box {
+  width: min(520px, 100%);
+}
+
+.search-box input {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  font-size: 0.95rem;
+  outline: none;
+  background: var(--white);
+  box-shadow: 0 4px 12px rgba(15, 61, 34, 0.05);
+}
+
+.search-box input:focus {
+  border-color: var(--green-700);
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  gap: 20px;
+}
+
+.member-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.22s, box-shadow 0.22s;
+  cursor: pointer;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.member-banner {
+  height: 112px;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(250, 204, 21, 0.6), transparent 55%),
+    linear-gradient(135deg, var(--green-800), var(--green-600));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--green-800);
+  border: 3px solid var(--gold-400);
+  font-size: 1.45rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.member-seal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 61, 34, 0.72);
+  color: var(--gold-400);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.member-info {
+  padding: 18px 16px 20px;
+}
+
+.member-info h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  color: var(--green-900);
+}
+
+.member-info p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+/* Videos */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.video-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.video-thumb {
+  height: 150px;
+  background: linear-gradient(135deg, var(--green-800), var(--green-600));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-thumb-gold {
+  background: linear-gradient(135deg, #a16207, var(--gold-500));
+}
+
+.video-thumb-dark {
+  background: linear-gradient(135deg, #0b2b18, #15803d);
+}
+
+.play-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--green-800);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.video-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(15, 61, 34, 0.85);
+  color: var(--gold-400);
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.video-info {
+  padding: 20px;
+}
+
+.video-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  color: var(--green-900);
+}
+
+.video-info p {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Contacto */
+.section-contact {
+  color: var(--white);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+  margin: 8px 0 12px;
+}
+
+.contact-info > p {
+  color: #dff4e7;
+  margin: 0 0 22px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.contact-item strong {
+  display: block;
+  color: var(--gold-400);
+  font-size: 0.84rem;
+}
+
+.contact-form {
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-form h3 {
+  margin: 0 0 16px;
+  color: var(--green-900);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--green-900);
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.94rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--green-700);
+}
+
+/* Footer */
+.footer {
+  background: #092414;
+  color: #cbe6d5;
+  padding: 24px 0;
+  font-size: 0.88rem;
+  border-top: 3px solid var(--gold-400);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-credit strong {
+  color: var(--gold-400);
+}
+
+/* Back to Top */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--green-700);
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 50;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--gold-400);
+  color: var(--green-900);
+  transform: translateY(-3px);
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 36, 20, 0.72);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 100;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--white);
+  width: min(560px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  border-top: 6px solid var(--green-700);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--green-900);
+}
+
+.modal-close {
+  border: none;
+  background: var(--green-50);
+  color: var(--green-900);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px 22px 24px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--green-900);
+  color: var(--white);
+  border: 1.5px solid var(--gold-400);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  z-index: 120;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Animación Reveal */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.hidden-init {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Responsive Móvil y Tablet */
+@media (max-width: 960px) {
+  .nav-links, #openLoginNav { display: none; }
+  .menu-toggle { display: flex; }
+  .hero-grid,
+  .event-showcase,
+  .benefits-layout,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar-inner { justify-content: center; text-align: center; }
+  .event-meta-grid, .form-row { grid-template-columns: 1fr; }
+  .hero { padding: 38px 0 74px; }
+  .section { padding: 54px 0; }
+}
+
+</style>
+</head>
+<body id="top">
+  <!-- Barra Superior Institucional -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-info">
+        <span class="topbar-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          Oficina Principal, Calle contiguo a IHCAFE, Tegucigalpa, Honduras
+        </span>
+        <a class="topbar-item" href="mailto:pricphma@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          pricphma@gmail.com
+        </a>
+      </div>
+      <div class="topbar-actions">
+        <div class="social-links" aria-label="Redes sociales oficiales">
+          <a href="#contacto" class="social-btn" data-social="Facebook" title="Facebook PRICPHMA" aria-label="Facebook">f</a>
+          <a href="#contacto" class="social-btn" data-social="Instagram" title="Instagram PRICPHMA" aria-label="Instagram">ig</a>
+          <a href="#contacto" class="social-btn" data-social="TikTok" title="TikTok PRICPHMA" aria-label="TikTok">tk</a>
+        </div>
+        <button type="button" class="btn btn-gold btn-sm" id="openAfiliateTop">AFÍLIATE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegación Principal -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Inicio PRICPHMA">
+        <div class="brand-crest" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="44" height="44">
+            <circle cx="32" cy="32" r="30" fill="#14532d" stroke="#facc15" stroke-width="3"/>
+            <circle cx="32" cy="32" r="23" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <path d="M32 14 L46 21 V33 C46 42 39.5 48.5 32 51 C24.5 48.5 18 42 18 33 V21 Z" fill="#15803d" stroke="#facc15" stroke-width="2"/>
+            <path d="M24 31 L32 25 L40 31 L32 37 Z" fill="#facc15"/>
+            <rect x="29" y="36" width="6" height="6" rx="1" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">PRICPHMA</span>
+          <span class="brand-motto">Por un Magisterio Digno, Libre y Respetado</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#beneficios" class="nav-link">Afiliados</a>
+        <a href="#junta" class="nav-link">Institucional</a>
+        <a href="#comunicados" class="nav-link">Beneficios y Servicios</a>
+        <a href="#videos" class="nav-link">Videos</a>
+        <a href="#contacto" class="nav-link">Contáctenos</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button type="button" class="btn btn-green btn-sm" id="openLoginNav">Iniciar Sesión</button>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú móvil" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <a href="#inicio" class="mobile-link">Inicio</a>
+      <a href="#eventos" class="mobile-link">Próximos Eventos</a>
+      <a href="#junta" class="mobile-link">Junta Directiva Central</a>
+      <a href="#comunicados" class="mobile-link">Comunicados Oficiales</a>
+      <a href="#beneficios" class="mobile-link">Beneficios y Créditos</a>
+      <a href="#videos" class="mobile-link">Videos</a>
+      <a href="#contacto" class="mobile-link">Contáctenos</a>
+      <div class="mobile-drawer-btns">
+        <button type="button" class="btn btn-gold" id="openAfiliateMobile">Afíliate Ahora</button>
+        <button type="button" class="btn btn-green" id="openLoginMobile">Portal de Afiliados</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Dinámico con Carrusel y Estampado Decorativo Animado -->
+  <section class="hero pattern-hero" id="inicio">
+    <div class="hero-ornaments" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="floating-grid"></div>
+    </div>
+
+    <div class="container hero-grid">
+      <div class="hero-slider" aria-live="polite">
+        <div class="slide-badge" id="heroBadge">MES PATRIO • JUNTA DIRECTIVA CENTRAL</div>
+        <h1 class="hero-title" id="heroTitle">¡Viva Honduras! Unidos por un Magisterio Digno</h1>
+        <p class="hero-desc" id="heroDesc">
+          En PRICPHMA celebramos con orgullo nuestra identidad, nuestra historia y el compromiso inquebrantable con cada docente hondureño.
+        </p>
+        <div class="hero-meta" id="heroMeta">Prof. Jury Hernández — Presidente Junta Directiva Central PRICPHMA</div>
+
+        <div class="hero-actions">
+          <button type="button" class="btn btn-gold btn-lg" id="openAfiliateHero">Afíliate al PRICPHMA</button>
+          <a href="#comunicados" class="btn btn-outline-light btn-lg">Ver Comunicados y Créditos</a>
+        </div>
+
+        <div class="slider-controls">
+          <button type="button" class="slider-arrow" id="prevSlide" aria-label="Diapositiva anterior">&#8592;</button>
+          <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Selector de portada"></div>
+          <button type="button" class="slider-arrow" id="nextSlide" aria-label="Siguiente diapositiva">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="hero-card-panel">
+        <div class="hero-glass-card">
+          <div class="anniversary-pill">64 ANIVERSARIO PRICPHMA</div>
+          <h2>Primer Colegio Profesional Hondureño de Maestros</h2>
+          <p>
+            Comprometidos con la transformación educativa. Unidos por la justicia, la equidad y el reconocimiento del valor de los maestros en la construcción de una sociedad mejor.
+          </p>
+          <div class="hero-quick-grid">
+            <button type="button" class="quick-tile" id="quickCreditBtn">
+              <span class="quick-kicker">Créditos</span>
+              <strong>Hasta L. 50,000</strong>
+            </button>
+            <button type="button" class="quick-tile" id="quickEventBtn">
+              <span class="quick-kicker">Aniversario</span>
+              <strong>21 Ago 2026</strong>
+            </button>
+            <button type="button" class="quick-tile" id="quickAppBtn">
+              <span class="quick-kicker">App Oficial</span>
+              <strong>Acceso Móvil</strong>
+            </button>
+            <button type="button" class="quick-tile" id="quickLoginBtn">
+              <span class="quick-kicker">Afiliados</span>
+              <strong>Iniciar Sesión</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C320,90 720,0 1440,52 L1440,80 L0,80 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Sección Próximos Eventos -->
+  <section class="section pattern-dots-green" id="eventos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Agenda Gremial</span>
+        <h2 class="section-title">Próximos Eventos</h2>
+        <p class="section-subtitle">Encuentros, conmemoraciones y actividades oficiales para todo el magisterio afiliado.</p>
+      </div>
+
+      <div class="event-showcase reveal">
+        <div class="event-visual">
+          <div class="event-emblem">
+            <span class="event-year">64</span>
+            <span class="event-anniv-label">ANIVERSARIO</span>
+            <p class="event-motto">Por un Magisterio Digno, Libre y Respetado</p>
+            <span class="event-pres">Prof. Jury Hernández • Junta Directiva Central</span>
+          </div>
+        </div>
+        <div class="event-body">
+          <div class="event-chip">Evento Destacado • Seccional #1</div>
+          <h3>CELEBRACIÓN ANIVERSARIO PRICPHMA SECCIONAL #1</h3>
+          <p class="event-summary">
+            Esta es una cena para conmemorar el 64 aniversario del Primer Colegio Profesional Hondureño de Maestros, reconociendo la trayectoria y unidad del gremio docente.
+          </p>
+          <div class="event-meta-grid">
+            <div class="meta-box">
+              <span class="meta-label">Fecha y Hora</span>
+              <strong>21 Ago 2026, 08:00 PM</strong>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">Ubicación</span>
+              <strong>Colegio Médico</strong>
+            </div>
+          </div>
+          <div class="event-actions">
+            <button type="button" class="btn btn-green" id="rsvpEventBtn">Confirmar Asistencia</button>
+            <button type="button" class="btn btn-outline-green" id="eventDetailsBtn">Ver Detalles del Evento</button>
+          </div>
+          <p class="rsvp-status" id="rsvpStatus" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Comunicados Oficiales (Paleta Amarillo / Verde / Blanco con Estampado) -->
+  <section class="section section-gold pattern-diagonal-gold" id="comunicados">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag tag-dark">Información Oficial</span>
+        <h2 class="section-title">Comunicados Oficiales</h2>
+        <p class="section-subtitle">Avisos de la Administración PRICPHMA sobre horarios, beneficios y nuevas líneas de crédito.</p>
+      </div>
+
+      <div class="filter-bar reveal" role="tablist" aria-label="Filtrar comunicados">
+        <button type="button" class="filter-pill active" data-com-filter="todos">Todos los comunicados</button>
+        <button type="button" class="filter-pill" data-com-filter="creditos">Créditos y Beneficios</button>
+        <button type="button" class="filter-pill" data-com-filter="administrativo">Avisos Administrativos</button>
+      </div>
+
+      <div class="comunicados-grid" id="comunicadosGrid"></div>
+    </div>
+  </section>
+
+  <!-- Sección Beneficios, Servicios y Requisitos de Crédito -->
+  <section class="section pattern-leaf-white" id="beneficios">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Afiliados PRICPHMA</span>
+        <h2 class="section-title">Beneficios, Servicios y Líneas de Crédito</h2>
+        <p class="section-subtitle">Consulta los programas vigentes y verifica tus requisitos antes de visitar nuestra oficina principal o regionales.</p>
+      </div>
+
+      <div class="benefits-layout reveal">
+        <div class="tabs-panel">
+          <div class="tab-buttons" role="tablist">
+            <button type="button" class="tab-btn active" data-tab="express">Préstamo Express</button>
+            <button type="button" class="tab-btn" data-tab="automatico">Préstamo Automático</button>
+            <button type="button" class="tab-btn" data-tab="app">App Oficial y Trámites</button>
+          </div>
+          <div class="tab-content" id="tabContent"></div>
+        </div>
+
+        <div class="checklist-card">
+          <h3>Verificador de Requisitos</h3>
+          <p>Marca los documentos que ya tienes listos para agilizar tu trámite en oficina:</p>
+          <label class="check-row">
+            <input type="checkbox" class="req-checkbox">
+            <span>Voucher de pago más reciente</span>
+          </label>
+          <label class="check-row">
+            <input type="checkbox" class="req-checkbox">
+            <span>Acuerdo de nombramiento o acuerdo vigente</span>
+          </label>
+          <label class="check-row">
+            <input type="checkbox" class="req-checkbox">
+            <span>Documentos personales vigentes</span>
+          </label>
+          <div class="progress-wrap">
+            <div class="progress-bar"><div class="progress-fill" id="reqProgressFill"></div></div>
+            <span class="progress-text" id="reqProgressText">0 de 3 requisitos listos</span>
+          </div>
+          <button type="button" class="btn btn-gold btn-block" id="openAfiliateCredit">Solicitar Orientación</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Junta Directiva Central (11 Miembros Oficiales) -->
+  <section class="section section-green-tint pattern-hex-green" id="junta">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Gobernanza Institucional</span>
+        <h2 class="section-title">Junta Directiva Central</h2>
+        <p class="section-subtitle">Conoce a los docentes que lideran las secretarías y representan al magisterio afiliado.</p>
+      </div>
+
+      <div class="board-toolbar reveal">
+        <div class="search-box">
+          <input type="search" id="boardSearch" placeholder="Buscar por nombre o secretaría (ej. Finanzas, Legal, Jury)..." aria-label="Buscar miembro de la Junta Directiva">
+        </div>
+        <div class="board-filters">
+          <button type="button" class="filter-pill active" data-board-filter="todos">Todos (11)</button>
+          <button type="button" class="filter-pill" data-board-filter="direccion">Dirección y General</button>
+          <button type="button" class="filter-pill" data-board-filter="gestion">Finanzas, Legal e Interior</button>
+          <button type="button" class="filter-pill" data-board-filter="social">Pedagógico, Ambiente y Social</button>
+        </div>
+      </div>
+
+      <div class="board-grid" id="boardGrid"></div>
+    </div>
+  </section>
+
+  <!-- Sección Videos Institucionales -->
+  <section class="section pattern-dots-green" id="videos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Multimedia</span>
+        <h2 class="section-title">Videos y Cobertura Gremial</h2>
+        <p class="section-subtitle">Mensajes oficiales de la Junta Directiva Central, celebraciones y cápsulas informativas.</p>
+      </div>
+
+      <div class="videos-grid reveal">
+        <article class="video-card">
+          <div class="video-thumb">
+            <span class="play-badge" aria-hidden="true">&#9658;</span>
+            <span class="video-tag">Mes Patrio</span>
+          </div>
+          <div class="video-info">
+            <h3>Mensaje Oficial del Mes Patrio</h3>
+            <p>Saludo institucional del Prof. Jury Hernández y la Junta Directiva Central al magisterio hondureño.</p>
+            <button type="button" class="btn btn-outline-green btn-sm video-play-btn" data-video="Mensaje Oficial del Mes Patrio">Ver resumen</button>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-thumb video-thumb-gold">
+            <span class="play-badge" aria-hidden="true">&#9658;</span>
+            <span class="video-tag">64 Aniversario</span>
+          </div>
+          <div class="video-info">
+            <h3>Camino al 64 Aniversario PRICPHMA</h3>
+            <p>Historia, logros gremiales e invitación especial a la cena conmemorativa de la Seccional #1.</p>
+            <button type="button" class="btn btn-outline-green btn-sm video-play-btn" data-video="Camino al 64 Aniversario PRICPHMA">Ver resumen</button>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-thumb video-thumb-dark">
+            <span class="play-badge" aria-hidden="true">&#9658;</span>
+            <span class="video-tag">App Oficial</span>
+          </div>
+          <div class="video-info">
+            <h3>Cómo usar la App Oficial PRICPHMA</h3>
+            <p>Guía rápida para consultar comunicados, beneficios y servicios desde tu teléfono celular.</p>
+            <button type="button" class="btn btn-outline-green btn-sm video-play-btn" data-video="Cómo usar la App Oficial PRICPHMA">Ver resumen</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Contáctenos -->
+  <section class="section section-contact pattern-hero" id="contacto">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <span class="section-tag tag-gold">Atención al Afiliado</span>
+        <h2>Contáctenos</h2>
+        <p>Visítanos en nuestra oficina principal en Tegucigalpa o escríbenos para recibir orientación sobre afiliación, créditos y servicios gremiales.</p>
+
+        <div class="contact-cards">
+          <div class="contact-item">
+            <strong>Oficina Principal</strong>
+            <span>Calle contiguo a IHCAFE, Tegucigalpa, Honduras</span>
+          </div>
+          <div class="contact-item">
+            <strong>Correo Electrónico Oficial</strong>
+            <span>pricphma@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <strong>Redes Oficiales</strong>
+            <span>Facebook • Instagram • TikTok (@PRICPHMA)</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <h3>Envíanos un mensaje</h3>
+        <div class="form-group">
+          <label for="cNombre">Nombre completo</label>
+          <input type="text" id="cNombre" required placeholder="Ej. Prof. María Elena López">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cCorreo">Correo electrónico</label>
+            <input type="email" id="cCorreo" required placeholder="correo@ejemplo.com">
+          </div>
+          <div class="form-group">
+            <label for="cTema">Motivo de consulta</label>
+            <select id="cTema">
+              <option value="Afiliación">Nueva afiliación</option>
+              <option value="Préstamo Express">Préstamo Express (hasta L. 25,000)</option>
+              <option value="Préstamo Automático">Préstamo Automático (hasta L. 50,000)</option>
+              <option value="Eventos">Eventos y Seccionales</option>
+              <option value="General">Consulta general</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cMensaje">Mensaje</label>
+          <textarea id="cMensaje" rows="4" required placeholder="Escribe aquí tu consulta..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block">Enviar Consulta</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>PRICPHMA</strong> — Primer Colegio Profesional Hondureño de Maestros<br>
+        <span>Por un Magisterio Digno, Libre y Respetado • Tegucigalpa, M.D.C., Honduras</span>
+      </div>
+      <div class="footer-credit">
+        Desarrollo técnico por <strong>WEBIFY</strong>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón Volver Arriba -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Volver arriba">&#8593;</button>
+
+  <!-- Modal Dinámico Reutilizable -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 id="modalTitle">Información</h3>
+        <button type="button" class="modal-close" id="modalClose" aria-label="Cerrar ventana">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast de Notificaciones -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+// Datos oficiales de PRICPHMA extraídos de su portal actual
+const HERO_SLIDES = [
+  {
+    badge: 'MES PATRIO • JUNTA DIRECTIVA CENTRAL',
+    title: '¡Viva Honduras! Unidos por un Magisterio Digno',
+    desc: 'En este Mes Patrio, en PRICPHMA celebramos con orgullo nuestra identidad, nuestra historia y el compromiso con la educación hondureña.',
+    meta: 'Prof. Jury Hernández — Presidente Junta Directiva Central PRICPHMA'
+  },
+  {
+    badge: '64 ANIVERSARIO • SECCIONAL #1',
+    title: '64 Años Defendiendo los Derechos del Magisterio',
+    desc: 'Conmemoramos más de seis décadas de unidad, justicia, equidad y reconocimiento del valor de los maestros en la construcción de una sociedad mejor.',
+    meta: 'Cena Conmemorativa • 21 Ago 2026, 08:00 PM en el Colegio Médico'
+  },
+  {
+    badge: 'SERVICIOS DIGITALES • APP OFICIAL',
+    title: 'Nuevas Líneas de Crédito y App Oficial PRICPHMA',
+    desc: 'Accede de forma ágil a Préstamo Express (hasta L. 25,000.00), Préstamo Automático (hasta L. 50,000.00) y comunicados al instante.',
+    meta: 'Oficina Principal, Calle contiguo a IHCAFE, Tegucigalpa y Oficinas Regionales'
+  }
+];
+
+const JUNTA_DIRECTIVA = [
+  { nombre: 'Prof. Jury Hernández', cargo: 'Presidente Junta Directiva Central', grupo: 'direccion', iniciales: 'JH' },
+  { nombre: 'Prof. Nazario Pavón', cargo: 'Secretario de Finanzas', grupo: 'gestion', iniciales: 'NP' },
+  { nombre: 'Prof. Carlos Mejía', cargo: 'Secretario del Interior', grupo: 'gestion', iniciales: 'CM' },
+  { nombre: 'Prof. Ariel Baquedano', cargo: 'Secretario de Publicidad', grupo: 'direccion', iniciales: 'AB' },
+  { nombre: 'Prof. Martha Alvarado', cargo: 'Secretaria de Relaciones Humanas', grupo: 'social', iniciales: 'MA' },
+  { nombre: 'Prof. Salvador Palma', cargo: 'Secretario de Asuntos Pedagógicos', grupo: 'social', iniciales: 'SP' },
+  { nombre: 'Prof. Eugenio Pleites', cargo: 'Secretario del Exterior', grupo: 'direccion', iniciales: 'EP' },
+  { nombre: 'Prof. Yaneth Marquina', cargo: 'Secretaria del Ambiente', grupo: 'social', iniciales: 'YM' },
+  { nombre: 'Prof. Claudia Ramírez', cargo: 'Secretaria de Asuntos Femeninos', grupo: 'social', iniciales: 'CR' },
+  { nombre: 'Prof. Bessy Berrios', cargo: 'Secretaria General', grupo: 'direccion', iniciales: 'BB' },
+  { nombre: 'Prof. José Bueso', cargo: 'Secretario de Asuntos Legales', grupo: 'gestion', iniciales: 'JB' }
+];
+
+const COMUNICADOS = [
+  {
+    id: 'com-creditos',
+    titulo: 'Nuevas líneas de crédito',
+    categoria: 'creditos',
+    etiqueta: 'Créditos y Beneficios',
+    fecha: '10 de julio de 2026',
+    resumen: 'Compartimos el comunicado oficial PRICPHMA sobre las nuevas líneas de crédito: Préstamo Express hasta L. 25,000.00 y Préstamo Automático hasta L. 50,000.00.',
+    contenido: [
+      'El Primer Colegio Profesional Hondureño de Maestros (PRICPHMA) informa a nuestros afiliados(as) y público en general que, a partir del 10 de julio de 2026, se ponen a disposición las siguientes líneas de crédito:',
+      '• Préstamo Express — Máximo: L. 25,000.00',
+      '• Préstamo Automático — Máximo: L. 50,000.00',
+      'Requisitos mínimos: voucher de pago más reciente, acuerdo de nombramiento o acuerdo vigente y documentos personales.',
+      'Los afiliados interesados pueden presentar su solicitud en la oficina principal (Calle contiguo a IHCAFE, Tegucigalpa) y en las oficinas regionales más cercanas.'
+    ]
+  },
+  {
+    id: 'com-cierre',
+    titulo: 'Cierre temporal de las instalaciones',
+    categoria: 'administrativo',
+    etiqueta: 'Aviso Administrativo',
+    fecha: '09 de julio de 2026',
+    resumen: 'Aviso sobre cierre temporal de oficina principal en Tegucigalpa y oficinas regionales por mantenimiento y fumigación.',
+    contenido: [
+      'El Primer Colegio Profesional Hondureño de Maestros (PRICPHMA) informa a nuestros afiliados(as) y público en general lo siguiente:',
+      'Nuestra oficina principal en Tegucigalpa y oficinas regionales permanecerán cerradas los días miércoles 15, jueves 16 y viernes 17 de julio por efectos de mantenimiento y fumigación.',
+      'Asimismo, los días lunes 13 y martes 14 de julio se atenderá en horario normal.',
+      'Las actividades se reanudarán el lunes 20 de julio del presente año en nuestros horarios habituales. Agradecemos su comprensión. Administración PRICPHMA.'
+    ]
+  }
+];
+
+const BENEFICIOS_TABS = {
+  express: {
+    titulo: 'Préstamo Express PRICPHMA',
+    monto: 'Máximo L. 25,000.00',
+    descripcion: 'Línea de crédito ágil diseñada para atender necesidades inmediatas de nuestros docentes afiliados con requisitos mínimos y atención directa.',
+    puntos: [
+      'Vigente desde el 10 de julio de 2026.',
+      'Proceso rápido en oficina principal (contiguo a IHCAFE) y oficinas regionales.',
+      'Requiere voucher reciente, acuerdo vigente y documentos personales.'
+    ]
+  },
+  automatico: {
+    titulo: 'Préstamo Automático PRICPHMA',
+    monto: 'Máximo L. 50,000.00',
+    descripcion: 'Financiamiento de mayor alcance enfocado en el bienestar y estabilidad financiera del magisterio afiliado.',
+    puntos: [
+      'Disponible para afiliados activos en todo el país.',
+      'Orientación personalizada en la oficina principal y sedes regionales.',
+      'Trámite simplificado presentando los 3 documentos básicos.'
+    ]
+  },
+  app: {
+    titulo: 'App Oficial y Portal de Afiliados',
+    monto: 'Acceso Digital 24/7',
+    descripcion: 'Mantente informado desde tu celular sobre comunicados de la Junta Directiva Central, eventos de seccionales y beneficios vigentes.',
+    puntos: [
+      'Consulta inmediata de comunicados oficiales y calendarios.',
+      'Acceso rápido al inicio de sesión de afiliados.',
+      'Canales activos en Facebook, Instagram, TikTok y correo pricphma@gmail.com.'
+    ]
+  }
+};
+
+// Estado de la aplicación
+const state = {
+  slideIndex: 0,
+  comFilter: 'todos',
+  boardFilter: 'todos',
+  boardQuery: '',
+  activeTab: 'express',
+  eventConfirmed: false
+};
+
+// Referencias DOM
+const el = {
+  heroBadge: document.getElementById('heroBadge'),
+  heroTitle: document.getElementById('heroTitle'),
+  heroDesc: document.getElementById('heroDesc'),
+  heroMeta: document.getElementById('heroMeta'),
+  sliderDots: document.getElementById('sliderDots'),
+  comunicadosGrid: document.getElementById('comunicadosGrid'),
+  boardGrid: document.getElementById('boardGrid'),
+  boardSearch: document.getElementById('boardSearch'),
+  tabContent: document.getElementById('tabContent'),
+  reqProgressFill: document.getElementById('reqProgressFill'),
+  reqProgressText: document.getElementById('reqProgressText'),
+  rsvpEventBtn: document.getElementById('rsvpEventBtn'),
+  rsvpStatus: document.getElementById('rsvpStatus'),
+  mobileDrawer: document.getElementById('mobileDrawer'),
+  menuToggle: document.getElementById('menuToggle'),
+  modalBackdrop: document.getElementById('modalBackdrop'),
+  modalTitle: document.getElementById('modalTitle'),
+  modalBody: document.getElementById('modalBody'),
+  modalClose: document.getElementById('modalClose'),
+  toast: document.getElementById('toast'),
+  backToTop: document.getElementById('backToTop')
+};
+
+let toastTimer = null;
+let sliderTimer = null;
+
+function showToast(message) {
+  el.toast.textContent = message;
+  el.toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.toast.classList.remove('show'), 3400);
+}
+
+function openModal(title, htmlContent) {
+  el.modalTitle.textContent = title;
+  el.modalBody.innerHTML = htmlContent;
+  el.modalBackdrop.classList.add('open');
+  el.modalBackdrop.setAttribute('aria-hidden', 'false');
+}
+
+function closeModal() {
+  el.modalBackdrop.classList.remove('open');
+  el.modalBackdrop.setAttribute('aria-hidden', 'true');
+}
+
+// 1. Carrusel Hero Dinámico
+function renderHeroSlide() {
+  const slide = HERO_SLIDES[state.slideIndex];
+  el.heroBadge.textContent = slide.badge;
+  el.heroTitle.textContent = slide.title;
+  el.heroDesc.textContent = slide.desc;
+  el.heroMeta.textContent = slide.meta;
+
+  el.sliderDots.innerHTML = HERO_SLIDES.map((_, idx) =>
+    `<button type="button" class="slider-dot ${idx === state.slideIndex ? 'active' : ''}" data-slide="${idx}" aria-label="Ver diapositiva ${idx + 1}"></button>`
+  ).join('');
+
+  el.sliderDots.querySelectorAll('.slider-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      state.slideIndex = Number(dot.dataset.slide);
+      renderHeroSlide();
+      resetSliderTimer();
+    });
+  });
+}
+
+function nextSlide() {
+  state.slideIndex = (state.slideIndex + 1) % HERO_SLIDES.length;
+  renderHeroSlide();
+}
+
+function prevSlide() {
+  state.slideIndex = (state.slideIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length;
+  renderHeroSlide();
+}
+
+function resetSliderTimer() {
+  clearInterval(sliderTimer);
+  sliderTimer = setInterval(nextSlide, 6500);
+}
+
+// 2. Comunicados Oficiales
+function renderComunicados() {
+  const filtered = COMUNICADOS.filter(item =>
+    state.comFilter === 'todos' || item.categoria === state.comFilter
+  );
+
+  el.comunicadosGrid.innerHTML = filtered.map(item => `
+    <article class="com-card">
+      <div>
+        <div class="com-meta">
+          <span class="com-badge">${item.etiqueta}</span>
+          <span class="com-date">${item.fecha}</span>
+        </div>
+        <h3>${item.titulo}</h3>
+        <p>${item.resumen}</p>
+      </div>
+      <button type="button" class="btn btn-green btn-sm read-com-btn" data-id="${item.id}">Leer comunicado completo</button>
+    </article>
+  `).join('');
+
+  el.comunicadosGrid.querySelectorAll('.read-com-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const com = COMUNICADOS.find(c => c.id === btn.dataset.id);
+      if (!com) return;
+      const bodyHtml = `
+        <p style="font-size:0.85rem;color:#15803d;font-weight:700;margin-top:0;">${com.etiqueta} • ${com.fecha}</p>
+        ${com.contenido.map(p => `<p>${p}</p>`).join('')}
+        <p style="font-size:0.84rem;color:#4b5d52;border-top:1px solid #d4e4da;padding-top:12px;">
+          Dado en la Ciudad de Tegucigalpa, M.D.C. — Administración PRICPHMA.
+        </p>
+      `;
+      openModal(com.titulo, bodyHtml);
+    });
+  });
+}
+
+// 3. Beneficios y Requisitos
+function renderBenefitsTab() {
+  const tab = BENEFICIOS_TABS[state.activeTab];
+  el.tabContent.innerHTML = `
+    <h3 style="margin:0;color:#0f3d22;">${tab.titulo}</h3>
+    <div class="tab-amount">${tab.monto}</div>
+    <p style="color:#4b5d52;margin-top:0;">${tab.descripcion}</p>
+    <ul style="padding-left:20px;margin:0;color:#14221a;">
+      ${tab.puntos.map(p => `<li style="margin-bottom:6px;">${p}</li>`).join('')}
+    </ul>
+  `;
+}
+
+function updateRequirementsProgress() {
+  const boxes = document.querySelectorAll('.req-checkbox');
+  const checked = Array.from(boxes).filter(b => b.checked).length;
+  const pct = Math.round((checked / boxes.length) * 100);
+  el.reqProgressFill.style.width = `${pct}%`;
+  el.reqProgressText.textContent = checked === boxes.length
+    ? '3 de 3 requisitos listos — Ya puedes presentar tu solicitud'
+    : `${checked} de ${boxes.length} requisitos listos`;
+}
+
+// 4. Junta Directiva Central
+function renderBoard() {
+  const query = state.boardQuery.trim().toLowerCase();
+  const list = JUNTA_DIRECTIVA.filter(m => {
+    const matchGroup = state.boardFilter === 'todos' || m.grupo === state.boardFilter;
+    const matchText = !query || m.nombre.toLowerCase().includes(query) || m.cargo.toLowerCase().includes(query);
+    return matchGroup && matchText;
+  });
+
+  if (!list.length) {
+    el.boardGrid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:#4b5d52;">No se encontraron directivos con ese criterio de búsqueda.</p>`;
+    return;
+  }
+
+  el.boardGrid.innerHTML = list.map(m => `
+    <article class="member-card" tabindex="0" data-member="${m.nombre}">
+      <div class="member-banner">
+        <span class="member-seal">PRICPHMA</span>
+        <div class="member-avatar">${m.iniciales}</div>
+      </div>
+      <div class="member-info">
+        <h3>${m.nombre}</h3>
+        <p>${m.cargo}</p>
+      </div>
+    </article>
+  `).join('');
+
+  el.boardGrid.querySelectorAll('.member-card').forEach(card => {
+    const showMember = () => {
+      const m = JUNTA_DIRECTIVA.find(item => item.nombre === card.dataset.member);
+      if (!m) return;
+      openModal(m.nombre, `
+        <p style="margin-top:0;font-weight:700;color:#15803d;">${m.cargo}</p>
+        <p>Integrante oficial de la <strong>Junta Directiva Central del PRICPHMA</strong>.</p>
+        <p style="margin-bottom:0;font-size:0.9rem;color:#4b5d52;">
+          Para consultas dirigidas a esta secretaría, escríbenos a <strong>pricphma@gmail.com</strong> o visítanos en la Oficina Principal, Calle contiguo a IHCAFE, Tegucigalpa.
+        </p>
+      `);
+    };
+    card.addEventListener('click', showMember);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter') showMember(); });
+  });
+}
+
+// 5. Modales de Afiliación e Inicio de Sesión
+function openAfiliateModal() {
+  openModal('Pre-Afiliación al PRICPHMA', `
+    <p style="margin-top:0;color:#4b5d52;">Completa tus datos para iniciar tu proceso de afiliación y recibir orientación de nuestra oficina.</p>
+    <form id="afiliateForm">
+      <div class="form-group">
+        <label for="afNombre">Nombre completo del docente</label>
+        <input type="text" id="afNombre" required placeholder="Ej. Prof. Carlos Ramírez">
+      </div>
+      <div class="form-group">
+        <label for="afCorreo">Correo electrónico</label>
+        <input type="email" id="afCorreo" required placeholder="docente@correo.com">
+      </div>
+      <div class="form-group">
+        <label for="afDepto">Departamento / Seccional</label>
+        <input type="text" id="afDepto" required placeholder="Ej. Francisco Morazán — Seccional #1">
+      </div>
+      <button type="submit" class="btn btn-gold btn-block">Enviar Solicitud de Afiliación</button>
+    </form>
+  `);
+  document.getElementById('afiliateForm').addEventListener('submit', e => {
+    e.preventDefault();
+    closeModal();
+    showToast('Solicitud de pre-afiliación registrada. Te contactaremos pronto.');
+  });
+}
+
+function openLoginModal() {
+  openModal('Portal de Afiliados PRICPHMA', `
+    <p style="margin-top:0;color:#4b5d52;">Ingresa con tu correo de afiliado para consultar estado de trámites, comunicados y beneficios.</p>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="logEmail">Correo o número de afiliado</label>
+        <input type="text" id="logEmail" required placeholder="afiliado@pricphma.hn">
+      </div>
+      <div class="form-group">
+        <label for="logPass">Contraseña</label>
+        <input type="password" id="logPass" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn btn-green btn-block">Ingresar al Portal</button>
+    </form>
+  `);
+  document.getElementById('loginForm').addEventListener('submit', e => {
+    e.preventDefault();
+    closeModal();
+    showToast('Vista previa: el acceso real se conectará con Supabase Auth.');
+  });
+}
+
+// Eventos e Inicialización
+document.getElementById('nextSlide').addEventListener('click', () => { nextSlide(); resetSliderTimer(); });
+document.getElementById('prevSlide').addEventListener('click', () => { prevSlide(); resetSliderTimer(); });
+
+['openAfiliateTop', 'openAfiliateHero', 'openAfiliateMobile', 'openAfiliateCredit'].forEach(id => {
+  document.getElementById(id).addEventListener('click', openAfiliateModal);
+});
+
+['openLoginNav', 'openLoginMobile', 'quickLoginBtn'].forEach(id => {
+  document.getElementById(id).addEventListener('click', openLoginModal);
+});
+
+document.getElementById('quickCreditBtn').addEventListener('click', () => {
+  document.getElementById('beneficios').scrollIntoView({ behavior: 'smooth' });
+});
+document.getElementById('quickEventBtn').addEventListener('click', () => {
+  document.getElementById('eventos').scrollIntoView({ behavior: 'smooth' });
+});
+document.getElementById('quickAppBtn').addEventListener('click', () => {
+  state.activeTab = 'app';
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === 'app'));
+  renderBenefitsTab();
+  document.getElementById('beneficios').scrollIntoView({ behavior: 'smooth' });
+});
+
+el.rsvpEventBtn.addEventListener('click', () => {
+  state.eventConfirmed = !state.eventConfirmed;
+  el.rsvpEventBtn.textContent = state.eventConfirmed ? 'Asistencia Registrada ✓' : 'Confirmar Asistencia';
+  el.rsvpStatus.textContent = state.eventConfirmed
+    ? '¡Listo! Recordatorio activado para el 21 Ago 2026 a las 08:00 PM en el Colegio Médico.'
+    : '';
+  showToast(state.eventConfirmed ? 'Asistencia confirmada para el 64 Aniversario.' : 'Confirmación cancelada.');
+});
+
+document.getElementById('eventDetailsBtn').addEventListener('click', () => {
+  openModal('Celebración 64 Aniversario — Seccional #1', `
+    <p style="margin-top:0;"><strong>Fecha y hora:</strong> 21 de agosto de 2026, 08:00 PM</p>
+    <p><strong>Lugar:</strong> Colegio Médico</p>
+    <p><strong>Descripción:</strong> Cena oficial para conmemorar el 64 aniversario del Primer Colegio Profesional Hondureño de Maestros (PRICPHMA), encabezada por la Junta Directiva Central.</p>
+    <p style="margin-bottom:0;color:#4b5d52;">Para más información escribe a <strong>pricphma@gmail.com</strong>.</p>
+  `);
+});
+
+document.querySelectorAll('[data-com-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    state.comFilter = btn.dataset.comFilter;
+    document.querySelectorAll('[data-com-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderComunicados();
+  });
+});
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    state.activeTab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderBenefitsTab();
+  });
+});
+
+document.querySelectorAll('.req-checkbox').forEach(box => {
+  box.addEventListener('change', updateRequirementsProgress);
+});
+
+document.querySelectorAll('[data-board-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    state.boardFilter = btn.dataset.boardFilter;
+    document.querySelectorAll('[data-board-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderBoard();
+  });
+});
+
+el.boardSearch.addEventListener('input', e => {
+  state.boardQuery = e.target.value;
+  renderBoard();
+});
+
+document.querySelectorAll('.video-play-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    openModal(btn.dataset.video, `
+      <p style="margin-top:0;">Espacio preparado para incrustar el video oficial de YouTube, Facebook o TikTok de PRICPHMA.</p>
+      <p style="margin-bottom:0;color:#4b5d52;">En la versión conectada con Panel Administrativo, el equipo podrá publicar o cambiar videos sin tocar código.</p>
+    `);
+  });
+});
+
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  e.target.reset();
+  showToast('Mensaje enviado correctamente. PRICPHMA te responderá a la brevedad.');
+});
+
+// Menú móvil
+el.menuToggle.addEventListener('click', () => {
+  const isOpen = el.mobileDrawer.classList.toggle('open');
+  el.menuToggle.setAttribute('aria-expanded', String(isOpen));
+  el.mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    el.mobileDrawer.classList.remove('open');
+    el.menuToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Cierre de modal
+el.modalClose.addEventListener('click', closeModal);
+el.modalBackdrop.addEventListener('click', e => { if (e.target === el.modalBackdrop) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Botón volver arriba
+window.addEventListener('scroll', () => {
+  el.backToTop.classList.toggle('visible', window.scrollY > 360);
+});
+el.backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Inicializar vistas
+renderHeroSlide();
+resetSliderTimer();
+renderComunicados();
+renderBenefitsTab();
+updateRequirementsProgress();
+renderBoard();
+
+</script>
+</body>
+</html>
